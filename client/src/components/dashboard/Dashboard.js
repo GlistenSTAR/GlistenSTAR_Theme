@@ -1,64 +1,128 @@
-import React, { Fragment, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import DashboardActions from './DashboardActions';
-import Experience from './Experience';
-import Education from './Education';
-import { getCurrentProfile, deleteAccount } from '../../actions/profile';
+import DataTable from "react-data-table-component";
+import { Modal } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios'
+
+import { upload_pdf } from '../../actions/pdf_upload';
+
+const columns = [
+  {
+    name: "Title",
+    selector: "title",
+    sortable: true
+  },
+  {
+    name: "Uploader",
+    selector: "director",
+    sortable: true
+  },
+  {
+    name: "Viewd number",
+    selector: "runtime",
+    sortable: true,
+    right: true
+  }
+];
+
+const pdfs_datas = []
 
 const Dashboard = ({
-  getCurrentProfile,
-  deleteAccount,
-  auth: { user },
-  profile: { profile }
+  auth: { user }
 }) => {
-  useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
+
+  const [openModal, setOpenModal] = useState(false);
+  const [selectFile, setSelectFile] = useState(null);
+  const [formData, setFormData] = useState({
+    title: '',
+    description: ''
+  });
+
+  const onChangeHandler =(e) => {
+    setSelectFile(e.target.files[0]);
+  }
+
+  const onClickHandler = (e) => {
+    e.preventDefault();
+    const data = new FormData() 
+    data.append('file', selectFile)
+    axios.post("/pdf_upload", data, {})
+      .then(res=>{
+        console.log(res)
+      })
+  }
+  
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
-      <p className="lead">
-        <i className="fas fa-user" /> Welcome {user && user.name}
-      </p>
-      {profile !== null ? (
-        <Fragment>
-          <DashboardActions />
-          <Experience experience={profile.experience} />
-          <Education education={profile.education} />
-
-          <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus" /> Delete My Account
+    <>
+      <Fragment>
+        <h1 className="large text-primary">Dashboard</h1>
+        <p className="lead">
+          <i className="fas fa-user" /> Welcome {user && user.name}
+        </p>
+          
+          <Fragment>
+            <button className="btn btn-success my-1" onClick={() => setOpenModal(true)}>
+              Upload New PDF
             </button>
-          </div>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <p>You have not yet setup a profile, please add some info</p>
-          <Link to="/create-profile" className="btn btn-primary my-1">
-            Create Profile
-          </Link>
-        </Fragment>
-      )}
-    </Fragment>
+            <div className="list_pdf mt-5">
+              <DataTable
+                title="PDF Lists"
+                columns={columns}
+                data={pdfs_datas}
+                defaultSortFieldId={1}
+                pagination
+                selectableRows
+              />
+            </div>
+          </Fragment>
+
+          <Modal 
+            show={openModal} 
+            onHide={()=> setOpenModal(false)}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+              <Modal.Header closeButton>
+                <Modal.Title>Upload PDF</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <form onSubmit={ onClickHandler } className="form">
+                  <input type="file" name="file" onChange={onChangeHandler}/>
+                  <div className="form-group mt-2">
+                    <label htmlFor="title">Title : </label>
+                    <input type="text" name="title" className="form-control" onChange = { onChange }/>
+                  </div>
+                  <div className="form-group mt-2">
+                    <label htmlFor="description">Description : </label>
+                    <textarea name="description" className="form-control" onChange = { onChange } rows="4"/>
+                  </div>
+                  <div className="form-group mt-2">
+                    <button type="submit" className="btn btn-success from-control">Save</button>
+                  </div>
+                </form>
+              </Modal.Body>
+          </Modal>
+      </Fragment>
+    </>
   );
 };
 
 Dashboard.propTypes = {
-  getCurrentProfile: PropTypes.func.isRequired,
-  deleteAccount: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  upload_pdf: PropTypes.func,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
-  profile: state.profile
+  auth: state.auth
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+export default connect(mapStateToProps, { upload_pdf })(
   Dashboard
 );

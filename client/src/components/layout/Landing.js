@@ -12,18 +12,11 @@ const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Developer Connector</h1>
+          <h1 className='x-large'>Whole PDF Reader</h1>
           <p className='lead'>
-            Create a developer profile/portfolio, share posts and get help from
-            other developers
+            It's can read the pdf files, upload the pdf files, saw about pdf info using QR code scanner and etc...
           </p>
           <div className='buttons'>
-            {/* <Link to="/register" className="btn btn-lg btn-info mr-2">
-              Sign Up
-            </Link>
-            <Link to="/login" className="btn btn-lg btn-light">
-              Login
-            </Link> */}
             <Link to='/register' className='btn btn-primary'>
               Sign Up
             </Link>

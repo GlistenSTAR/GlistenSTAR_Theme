@@ -7,12 +7,6 @@ import { logout } from '../../actions/auth';
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
     <ul className="navbar-nav ml-auto">
-      <li className="nav-item">
-        <Link className="nav-link" to="/profiles">Developers</Link>
-      </li>
-      <li>
-        <Link className="nav-link" to="/posts">Posts</Link>
-      </li>
       <li>
         <Link className="nav-link" to="/dashboard">
           <i className="fas fa-user" />{' '}
@@ -31,10 +25,8 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link className="nav-link" to="/profiles">Developers</Link>
-      </li>
-      <li>
-        <Link className="nav-link" to="/register">Register</Link>
+        <Link className="nav-link" to="/register">
+          Register</Link>
       </li>
       <li>
         <Link className="nav-link" to="/login">Login</Link>
@@ -46,7 +38,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     <nav className="navbar bg-dark">
       <h1>
         <Link className="nav-link" to="/">
-          <i className="fas fa-code" /> DevConnector
+          <i className="fas fa-code" /> PDF_Reader
         </Link>
       </h1>
       <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
