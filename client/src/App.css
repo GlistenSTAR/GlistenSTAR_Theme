@@ -1,4 +1,9 @@
 /* Global Styles */
+@font-face {
+  font-family: Roboto;
+  src: url('./fonts/Simplo-Medium.otf');
+}
+
 :root {
   --primary-color: #17a2b8;
   --dark-color: #343a40;
@@ -14,7 +19,7 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family:'Roboto';
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -67,7 +72,7 @@ img {
 }
 
 .text-primary {
-  color: var(--primary-color);
+  color: var(--primary-color)!important;
 }
 
 .text-dark {
@@ -164,6 +169,10 @@ img {
   color: #fff;
 }
 
+.btn-primary:hover{
+  background: #31B0D5;
+}
+
 .btn-light,
 .bg-light,
 .badge-light,
@@ -226,7 +235,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
@@ -308,7 +317,7 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 3px var(--primary-color);
   opacity: 0.9;
 }
 
@@ -329,6 +338,33 @@ button {
 .navbar .welcome span {
   margin-right: 0.6rem;
 }
+
+nav{
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-link{
+  font-size: large;
+  color: white;
+}
+
+.navbar-brand{
+  font-size: xx-large;
+}
+
+.navbar .container{
+  margin-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.navbar .container h1{
+  padding-top: 5px;
+}
+.navbar .container a:active, .navbar .container a:focus{
+  color: #17a2b8;
+}
+
 
 /* Landing Page */
 .landing {
@@ -360,6 +396,18 @@ button {
 .landing .btn{
   width: auto;
 }
+
+.landing h1{
+  font-size: 4rem
+}
+.landing .lead{
+  font-size: 1.5rem;
+}
+.landing .buttons .btn{
+  width: 120px;
+  margin:10px
+}
+
 
 input{
   border-radius: 5px;

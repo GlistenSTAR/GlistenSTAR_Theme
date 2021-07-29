@@ -1,0 +1,19 @@
+.auth_backgound{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.auth_component{
+  display: flex;
+  width: 80%;
+  align-items: stretch;
+  align-content: center;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-top: 50px;
+}
+
+.auth_component input:focus-visible{
+  border: 2px solid #31B0D5!important;
+  outline: none;
+}

@@ -7,6 +7,8 @@ import Dashboard from '../dashboard/Dashboard';
 import NotFound from '../layout/NotFound';
 import PrivateRoute from '../routing/PrivateRoute';
 
+import '../components.css'
+
 const Routes = props => {
   return (
     <section className="container">

@@ -36,12 +36,14 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 
   return (
     <nav className="navbar bg-dark">
-      <h1>
-        <Link className="nav-link" to="/">
-          <i className="fas fa-code" /> PDF_Reader
-        </Link>
-      </h1>
-      <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      <div className="container">
+        <h1>
+          <Link className="nav-link navbar-brand" to="/">
+            <i className="fas fa-code" /> PDF_Reader
+          </Link>
+        </h1>
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      </div>
     </nav>
   );
 };

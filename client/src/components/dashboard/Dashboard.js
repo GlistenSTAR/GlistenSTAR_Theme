@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import DataTable from "react-data-table-component";
 import { Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios'
 
 import { upload_pdf } from '../../actions/pdf_upload';
 
@@ -48,10 +47,7 @@ const Dashboard = ({
     e.preventDefault();
     const data = new FormData() 
     data.append('file', selectFile)
-    axios.post("/pdf_upload", data, {})
-      .then(res=>{
-        console.log(res)
-      })
+    upload_pdf(data)
   }
   
   const onChange = (e) => {
