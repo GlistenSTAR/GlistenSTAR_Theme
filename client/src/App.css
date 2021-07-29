@@ -317,7 +317,7 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 3px var(--primary-color);
   opacity: 0.9;
 }
 
@@ -341,7 +341,6 @@ button {
 
 nav{
   height: 80px;
-  border-bottom: 1px solid #17a2b8;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -361,6 +360,9 @@ nav{
 }
 .navbar .container h1{
   padding-top: 5px;
+}
+.navbar .container a:active, .navbar .container a:focus{
+  color: #17a2b8;
 }
 
 
