@@ -1,8 +1,4 @@
-# Lionheart_theme 2.0
-
-> Social network for developers
-
-This is a MERN stack application from the "MERN Stack Front To Back" course on [Udemy](https://www.udemy.com/mern-stack-front-to-back/?couponCode=TRAVERSYMEDIA). It is a small social network app that includes authentication, profiles and forum posts.
+# GlistenSTAR_theme 2.0
 
 ---
 
@@ -14,39 +10,38 @@ This is a MERN stack application from the "MERN Stack Front To Back" course on [
 {
   "mongoURI": "<your_mongoDB_Atlas_uri_with_credentials>",
   "jwtSecret": "secret",
-  "githubToken": "<yoursecrectaccesstoken>"
 }
 ```
 
 ### Install server dependencies
 
 ```bash
-npm install
+yarn install
 ```
 
 ### Install client dependencies
 
 ```bash
 cd client
-npm install
+yarn install
 ```
 
 ### Run both Express & React from root
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ### Build for production
 
 ```bash
 cd client
-npm run build
+yarn build
 ```
 
 ### Test production before deploy
 
-After running a build in the client 👆, cd into the root of the project.  
+After running a build in the client , cd into the root of the project.  
 And run...
 
 Linux/Unix 
@@ -128,7 +123,7 @@ Once merged you can push to heroku as above and your site will rebuild and be up
 
 ### Author
  
-Lionheart
+GlistenSTAR
 
 ### Version
 
@@ -138,7 +133,7 @@ Lionheart
 
 This project is licensed under the MIT License
 
-### Run three things
+### Run three things using concurrently module
 
 ```
 "dev": "concurrently -n Server,Client,DB \"npm run server\" \"npm run client\" \"npm run db\"",
