@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from "../hooks/redux-hooks";
-import { fetchTodos, fetchParticularTodo } from '../store/todo-actions';
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { fetchTodos, fetchParticularTodo } from '../../store/todo-actions';
 import { useState } from 'react'
 import './Todo.css'
 
