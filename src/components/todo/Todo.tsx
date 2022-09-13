@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { fetchTodos, fetchParticularTodo } from '../../store/todo-actions';
+import { fetchTodos, fetchParticularTodo } from '../../actions/todo-actions';
 import { useState } from 'react'
 import './Todo.css'
 
@@ -29,7 +29,7 @@ const Todo = () => {
 
     return (
         <>
-            <div>
+            <div className="flex justify-center">
                 <label>Enter the todo id : </label>
                 <input onChange={(event) => { setTodo_id(parseInt(event.target.value)) }} type="number"></input>
                 <button onClick={searchHandler}> Find </button>

@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import logger from 'redux-logger'
 
-import todoSlice from "./todo-slice";
+import rootReducer from "./reducers";
 
 const store = configureStore({
-    reducer: { todo: todoSlice.reducer },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    reducer: rootReducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

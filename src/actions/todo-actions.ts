@@ -1,7 +1,7 @@
-import todoSlice from "./todo-slice";
+import todoSlice from "../reducers/todo-slice";
 import { AnyAction } from "@reduxjs/toolkit";
 import { ThunkAction } from "@reduxjs/toolkit";
-import { RootState } from "./index";
+import { RootState } from "../store";
 import { TodoModel } from "../types/todo_types";
 import TodoService from "../service/todoService";
 
