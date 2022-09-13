@@ -1,8 +1,3 @@
-### Medium Link:
-https://medium.com/@jodiss-tri/build-a-react-redux-with-typescript-using-redux-toolkit-package-d17337aa6e39
-### DEMO :
-![image](https://user-images.githubusercontent.com/51241236/161106897-a5ad89f7-f07b-42f9-a501-d4df1c82ac8e.png)
-
 ### API CALL FROM :
 https://jsonplaceholder.typicode.com/todos
 
