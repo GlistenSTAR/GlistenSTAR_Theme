@@ -15,7 +15,7 @@ const Todo = () => {
         dispatch(fetchParticularTodo(todo_id))
     }
     const checkTodo = (): boolean => {
-        if (alltodos.length == 0) {
+        if (alltodos.length === 0) {
             return false
         }
         return true

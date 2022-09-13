@@ -1,6 +1,7 @@
 import Api from "./Api";
 import { TodoModel } from "../models/redux-models";
-export default {
+
+const TodoService = {
     async getAllTodos() {
         var response = await Api().get("todos");
         return response.data;
@@ -12,3 +13,5 @@ export default {
         )[0];
     },
 };
+
+export default TodoService;
