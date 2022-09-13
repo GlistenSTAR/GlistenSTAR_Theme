@@ -2,7 +2,7 @@ import todoSlice from "./todo-slice";
 import { AnyAction } from "@reduxjs/toolkit";
 import { ThunkAction } from "@reduxjs/toolkit";
 import { RootState } from "./index";
-import { TodoModel } from "../models/redux-models";
+import { TodoModel } from "../types/todo_types";
 import TodoService from "../service/todoService";
 
 export const todoActions = todoSlice.actions;

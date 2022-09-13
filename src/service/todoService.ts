@@ -1,5 +1,5 @@
 import Api from "./Api";
-import { TodoModel } from "../models/redux-models";
+import { TodoModel } from "../types/todo_types";
 
 const TodoService = {
     async getAllTodos() {
